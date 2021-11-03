@@ -1,0 +1,52 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Fakery",
+        "repositoryURL": "https://github.com/vadymmarkov/Fakery.git",
+        "state": {
+          "branch": null,
+          "revision": "71cb3bf36a808534659d1248780c2bf3c4c4fc91",
+          "version": "5.1.0"
+        }
+      },
+      {
+        "package": "MBProgressHUD",
+        "repositoryURL": "https://github.com/jdg/MBProgressHUD.git",
+        "state": {
+          "branch": null,
+          "revision": "bca42b801100b2b3a4eda0ba8dd33d858c780b0d",
+          "version": "1.2.0"
+        }
+      },
+      {
+        "package": "SFSafeSymbols",
+        "repositoryURL": "https://github.com/piknotech/SFSafeSymbols.git",
+        "state": {
+          "branch": null,
+          "revision": "c61de7a6e9eb1520d32316b06d5932accd974e70",
+          "version": "2.1.3"
+        }
+      },
+      {
+        "package": "SwiftCoroutine",
+        "repositoryURL": "https://github.com/belozierov/SwiftCoroutine.git",
+        "state": {
+          "branch": null,
+          "revision": "d15c034dd235bed4393f6b25290c8b9025b2fdf8",
+          "version": "2.1.11"
+        }
+      },
+      {
+        "package": "SwiftDate",
+        "repositoryURL": "https://github.com/malcommac/SwiftDate.git",
+        "state": {
+          "branch": null,
+          "revision": "6190d0cefff3013e77ed567e6b074f324e5c5bf5",
+          "version": "6.3.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
