@@ -14,6 +14,14 @@
 		4309489E2732A8A800FAEC4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430948952732A8A800FAEC4B /* AppDelegate.swift */; };
 		430948A02732A8A800FAEC4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430948972732A8A800FAEC4B /* SceneDelegate.swift */; };
 		430948A22732A8B300FAEC4B /* Pat_ckageSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430948992732A8A800FAEC4B /* Pat_ckageSampleTests.swift */; };
+		438729A5273419030066120F /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 438729A4273419030066120F /* Swinject */; };
+		438729A827341AAB0066120F /* MVVM in Frameworks */ = {isa = PBXBuildFile; productRef = 438729A727341AAB0066120F /* MVVM */; };
+		438729AB27341CD40066120F /* XCoordinator in Frameworks */ = {isa = PBXBuildFile; productRef = 438729AA27341CD40066120F /* XCoordinator */; };
+		438729AE27341E390066120F /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438729AD27341E390066120F /* UserService.swift */; };
+		438729B127341FB20066120F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438729B027341FB20066120F /* User.swift */; };
+		439441582732C6AD00F45261 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 439441572732C6AD00F45261 /* GoogleService-Info.plist */; };
+		4394415A2732C70000F45261 /* patckage in Frameworks */ = {isa = PBXBuildFile; productRef = 439441592732C70000F45261 /* patckage */; };
+		4394415C2732CF5D00F45261 /* patbase in Frameworks */ = {isa = PBXBuildFile; productRef = 4394415B2732CF5D00F45261 /* patbase */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +46,9 @@
 		430948972732A8A800FAEC4B /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		430948992732A8A800FAEC4B /* Pat_ckageSampleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pat_ckageSampleTests.swift; sourceTree = "<group>"; };
 		430948A32732A8E700FAEC4B /* patckage */ = {isa = PBXFileReference; lastKnownFileType = folder; name = patckage; path = ../..; sourceTree = "<group>"; };
+		438729AD27341E390066120F /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		438729B027341FB20066120F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		439441572732C6AD00F45261 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +56,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4394415A2732C70000F45261 /* patckage in Frameworks */,
+				4394415C2732CF5D00F45261 /* patbase in Frameworks */,
+				438729A827341AAB0066120F /* MVVM in Frameworks */,
+				438729A5273419030066120F /* Swinject in Frameworks */,
+				438729AB27341CD40066120F /* XCoordinator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +97,7 @@
 		4309488E2732A8A800FAEC4B /* Pat-ckageSample */ = {
 			isa = PBXGroup;
 			children = (
+				438729AC27341E260066120F /* Services */,
 				4309488F2732A8A800FAEC4B /* ViewController.swift */,
 				430948902732A8A800FAEC4B /* Assets.xcassets */,
 				430948912732A8A800FAEC4B /* LaunchScreen.storyboard */,
@@ -88,6 +105,7 @@
 				430948952732A8A800FAEC4B /* AppDelegate.swift */,
 				430948962732A8A800FAEC4B /* Info.plist */,
 				430948972732A8A800FAEC4B /* SceneDelegate.swift */,
+				439441572732C6AD00F45261 /* GoogleService-Info.plist */,
 			);
 			name = "Pat-ckageSample";
 			path = "../Pat-ckageSample";
@@ -109,6 +127,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		438729AC27341E260066120F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				438729AF27341FAA0066120F /* Models */,
+				438729AD27341E390066120F /* UserService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		438729AF27341FAA0066120F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				438729B027341FB20066120F /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,6 +161,11 @@
 			);
 			name = "Pat-ckageSPMSample";
 			packageProductDependencies = (
+				439441592732C70000F45261 /* patckage */,
+				4394415B2732CF5D00F45261 /* patbase */,
+				438729A4273419030066120F /* Swinject */,
+				438729A727341AAB0066120F /* MVVM */,
+				438729AA27341CD40066120F /* XCoordinator */,
 			);
 			productName = "Pat-ckageSPMSample";
 			productReference = 430947F52732A02B00FAEC4B /* Pat-ckageSPMSample.app */;
@@ -177,6 +217,11 @@
 				Base,
 			);
 			mainGroup = 430947EC2732A02B00FAEC4B;
+			packageReferences = (
+				438729A3273419020066120F /* XCRemoteSwiftPackageReference "Swinject" */,
+				438729A627341AAA0066120F /* XCRemoteSwiftPackageReference "MVVM" */,
+				438729A927341CD40066120F /* XCRemoteSwiftPackageReference "XCoordinator" */,
+			);
 			productRefGroup = 430947F62732A02B00FAEC4B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -193,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4309489D2732A8A800FAEC4B /* Main.storyboard in Resources */,
+				439441582732C6AD00F45261 /* GoogleService-Info.plist in Resources */,
 				4309489B2732A8A800FAEC4B /* Assets.xcassets in Resources */,
 				4309489C2732A8A800FAEC4B /* LaunchScreen.storyboard in Resources */,
 			);
@@ -212,6 +258,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				438729B127341FB20066120F /* User.swift in Sources */,
+				438729AE27341E390066120F /* UserService.swift in Sources */,
 				4309489E2732A8A800FAEC4B /* AppDelegate.swift in Sources */,
 				4309489A2732A8A800FAEC4B /* ViewController.swift in Sources */,
 				430948A02732A8A800FAEC4B /* SceneDelegate.swift in Sources */,
@@ -387,12 +435,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.patv3.Pat-ckageSample";
+				PRODUCT_BUNDLE_IDENTIFIER = com.patv3.patckage.sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -415,12 +464,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.patv3.Pat-ckageSample";
+				PRODUCT_BUNDLE_IDENTIFIER = com.patv3.patckage.sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -507,6 +557,59 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		438729A3273419020066120F /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		438729A627341AAA0066120F /* XCRemoteSwiftPackageReference "MVVM" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dgrzeszczak/MVVM.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		438729A927341CD40066120F /* XCRemoteSwiftPackageReference "XCoordinator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/quickbirdstudios/XCoordinator.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		438729A4273419030066120F /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 438729A3273419020066120F /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		438729A727341AAB0066120F /* MVVM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 438729A627341AAA0066120F /* XCRemoteSwiftPackageReference "MVVM" */;
+			productName = MVVM;
+		};
+		438729AA27341CD40066120F /* XCoordinator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 438729A927341CD40066120F /* XCRemoteSwiftPackageReference "XCoordinator" */;
+			productName = XCoordinator;
+		};
+		439441592732C70000F45261 /* patckage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = patckage;
+		};
+		4394415B2732CF5D00F45261 /* patbase */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = patbase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 430947ED2732A02B00FAEC4B /* Project object */;
 }

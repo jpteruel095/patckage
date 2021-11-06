@@ -6,14 +6,19 @@
 //
 
 import UIKit
+import Firebase
+import Swinject
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    lazy var container = Container()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
+        
+        container.register(UserService.self) { _ in UserService() }
         return true
     }
 
