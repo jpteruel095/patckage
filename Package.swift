@@ -1,18 +1,20 @@
-// swift-tools-version:5.5
+// swift-tools-version:5.3
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 struct SPMPackage {
     static let name = "patckage"
-    static let platforms = [
-        SupportedPlatform.iOS(.v13)
+    static let platforms: [SupportedPlatform] = [
+        .iOS(.v13)
     ]
     static let products = [
-        Targets.patckage
+        Targets.patckage,
+        Targets.patbase,
     ]
     static let targets = [
-        Targets.patckage
+        Targets.patckage,
+        Targets.patbase,
     ]
 }
 
@@ -47,6 +49,16 @@ struct Dependencies {
         url: "https://github.com/belozierov/SwiftCoroutine.git",
         fromVersion: "2.1.11")
     
+    static let Firebase = PackageDependency(
+        name: "Firebase",
+        url: "https://github.com/firebase/firebase-ios-sdk.git",
+        fromVersion: "8.0.0")
+    
+    enum FirebaseProducts: String, DependencyProduct {
+        case Firestore = "FirebaseFirestoreSwift-Beta"
+        case FirebaseAuth
+    }
+    
     // MARK: Unit Test Dependencies
     static let Nimble =  PackageDependency(
         name: "Nimble",
@@ -61,14 +73,24 @@ struct Dependencies {
 
 // MARK: Targets Manager
 struct Targets {
+    private static let commonDependencies = [
+        Dependencies.SFSafeSymbols,
+        Dependencies.MBProgressHUD,
+        Dependencies.Fakery,
+        Dependencies.SwiftDate,
+        Dependencies.SwiftCoroutine,
+    ]
     static let patckage = PackageTarget(
         name: "patckage",
+        dependencies: commonDependencies)
+    
+    static let patbase = PackageTarget(
+        name: "patbase",
         dependencies: [
-            Dependencies.SFSafeSymbols,
-            Dependencies.MBProgressHUD,
-            Dependencies.Fakery,
-            Dependencies.SwiftDate,
-            Dependencies.SwiftCoroutine,
+            patckage,
+            Dependencies.Firebase.withProducts([
+                Dependencies.FirebaseProducts.Firestore
+            ]),
         ])
 }
 
@@ -76,6 +98,7 @@ struct Targets {
 protocol AsTargetDependency{
     var targetDependencies:[Target.Dependency] { get }
 }
+
 struct PackageDependency: AsTargetDependency, Equatable {
     let name: String
     let dependency: Package.Dependency
@@ -108,21 +131,41 @@ struct PackageDependency: AsTargetDependency, Equatable {
         if products.isEmpty {
             return [Target.Dependency(stringLiteral: name)]
         }else{
-            return self.products.compactMap({ (productName) -> Target.Dependency in
-                return .product(name: productName, package: self.name)
+            return self.products.compactMap({ (product) -> Target.Dependency in
+                return .product(name: product, package: self.name)
             })
         }
     }
     
-    func withProducts(_ products: [String]) -> PackageDependency {
+    func withProducts<ProductType: DependencyProduct>(_ products: [ProductType]) -> PackageDependency {
         var dependency = self
-        dependency.products = products
+        dependency.products = products.compactMap({$0.name})
         return dependency
     }
     
     static func == (lhs: PackageDependency, rhs: PackageDependency) -> Bool {
         return lhs.name == rhs.name
     }
+}
+
+protocol DependencyProduct {
+    var name: String { get }
+}
+
+extension DependencyProduct where Self: RawRepresentable, RawValue == String {
+    var name: String {
+        self.rawValue
+    }
+}
+
+extension String: DependencyProduct {
+    var name: String {
+        self
+    }
+}
+
+struct EmptyProducts: DependencyProduct {
+    var name: String = ""
 }
 
 struct PackageTarget: AsTargetDependency {
